@@ -44,7 +44,12 @@
 //  #define HAS_NO_METER              // define if No "Slimme Meter" is attached (*TESTING*)
 //  #define SM_HAS_NO_FASE_INFO       // if your SM does not give fase info use total delevered/returned
 //  #define SHOW_PASSWRDS             // well .. show the PSK key and MQTT password, what else?
+// When in Belium you can include the following line, if you install the adruino-dsmr-nl-be library from this location:
+// https://github.com/rvdbreemen/arduino-dsmr-nl-be
+// Just download the ZIP file, then add it to your aduino IDE. 
+#define DSRM_IN_BELGIUM
 /******************** don't change anything below this comment **********************/
+
 
 //======= test combination of compiler defines ==============
 #if defined( USE_NTP_TIME ) && !defined( USE_PRE40_PROTOCOL )
@@ -68,8 +73,12 @@
   //  https://github.com/mrWheel/arduino-dsmr30.git             //PRE40
   #include <dsmr30.h>                                           //PRE40
 #else                                                           //else
-  //  https://github.com/matthijskooijman/arduino-dsmr
-  #include <dsmr.h>               // Version 0.1 - Commit f79c906 on 18 Sep 2018
+  // If in Belgium make sure to install the forked library adruino-dsmr-nl-be
+  // found here: https://github.com/rvdbreemen/arduino-dsmr-nl-be
+  // This library is a fork of the original library by Matthijs Kooijmans   
+  // found here https://github.com/matthijskooijman/arduino-dsmr
+
+  #include <dsmr.h>               
 #endif
 
 #ifdef ARDUINO_ESP8266_GENERIC
